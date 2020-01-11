@@ -6,11 +6,19 @@ import ProductDetailsScreen from "../screens/shop/ProductDetailsScreen";
 
 const ProductsNavigator = createStackNavigator(
 	{
-		products: ProductOverviewScreen,
+		products: {
+			screen : ProductOverviewScreen,
+			navigationOptions : {
+				title : 'Products'
+			},
+		},
 		productDetails : ProductDetailsScreen
 	},
 	{
 		defaultNavigationOptions: {
+			headerTitleStyle : {
+				fontFamily : 'open-sans-bold'
+			},
 			headerTintColor: "white",
 			headerStyle: {
 				backgroundColor: Colors.accent

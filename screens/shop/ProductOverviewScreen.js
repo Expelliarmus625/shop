@@ -34,6 +34,8 @@ const ProductOverviewScreen = props => {
 		</View>
 	);
 };
+
+
 const styles = StyleSheet.create({
 	screen: {
 		backgroundColor: 'white'
