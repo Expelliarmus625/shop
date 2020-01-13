@@ -3,21 +3,23 @@ import { createAppContainer } from "react-navigation";
 import ProductOverviewScreen from "../screens/shop/ProductOverviewScreen";
 import Colors from "../constants/Colors";
 import ProductDetailsScreen from "../screens/shop/ProductDetailsScreen";
+import CartScreen from "../screens/shop/CartScreen";
 
 const ProductsNavigator = createStackNavigator(
 	{
 		products: {
-			screen : ProductOverviewScreen,
-			navigationOptions : {
-				title : 'Products'
-			},
+			screen: ProductOverviewScreen,
+			navigationOptions: {
+				title: "Products"
+			}
 		},
-		productDetails : ProductDetailsScreen
+		productDetails: ProductDetailsScreen,
+		Cart: CartScreen
 	},
 	{
 		defaultNavigationOptions: {
-			headerTitleStyle : {
-				fontFamily : 'open-sans-bold'
+			headerTitleStyle: {
+				fontFamily: "open-sans-bold"
 			},
 			headerTintColor: "white",
 			headerStyle: {

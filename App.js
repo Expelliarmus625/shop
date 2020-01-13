@@ -4,12 +4,14 @@ import ShopNavigator from "./navigation/ShopNavigator";
 import { createStore, combineReducers } from "redux";
 import { Provider, useSelector } from "react-redux";
 import productsReducer from "./store/reducers/products";
+import cartReducer from './store/reducers/cart'
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 
 
 const rootReducer = combineReducers({
-	products: productsReducer
+	products: productsReducer,
+	cart : cartReducer
 });
 
 const store = createStore(rootReducer);

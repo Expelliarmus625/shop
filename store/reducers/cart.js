@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../action/cart";
+import { ADD_TO_CART } from "../actions/cart";
 import CartItem from "../../models/cart-item";
 
 const initialState = {
@@ -24,16 +24,16 @@ export default (state = initialState, action) => {
 					...state,
 					items: {
 						...state.items,
-						[addedProduct.id]: updatedCartItem,
+						[addedProduct.id]: updatedCartItem
 					},
-                    totalAmount : state.totalAmount + prodPrice
+					totalAmount: state.totalAmount + prodPrice
 				};
 			} else {
 				const newCartItem = new CartItem(1, prodPrice, prodTitle, prodPrice);
 				return {
 					...state,
-                    items: { ...state.items, [addedProduct.id]: newCartItem },
-                    totalAmount : state.totalAmount + prodPrice
+					items: { ...state.items, [addedProduct.id]: newCartItem },
+					totalAmount: state.totalAmount + prodPrice
 				};
 			}
 	}
