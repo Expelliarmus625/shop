@@ -13,8 +13,13 @@ const ProductsNavigator = createStackNavigator(
 				title: "Products"
 			}
 		},
-		productDetails: ProductDetailsScreen,
-		Cart: CartScreen
+		Cart: {
+			screen: CartScreen,
+			navigationOptions: {
+				title: "Your Cart"
+			}
+		},
+		productDetails: ProductDetailsScreen
 	},
 	{
 		defaultNavigationOptions: {

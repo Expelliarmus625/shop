@@ -6,9 +6,8 @@ const CartItem = props => {
 	return (
 		<View style={styles.cartItem}>
 			<View style={styles.itemData}>
-				<Text style={styles.qty}>
-					{props.quantity} {props.title}
-				</Text>
+				<Text style={styles.qty}>{props.quantity} </Text>
+				<Text style={styles.title}>{props.title}</Text>
 			</View>
 			<View style={styles.itemData}>
 				<Text style={styles.amount}>{props.amount}</Text>
@@ -16,7 +15,7 @@ const CartItem = props => {
 					onPress={props.onRemove}
 					style={styles.deleteButton}
 				>
-					<Ionicons name='md-trash' size={23} color='red' />
+					<Ionicons name='md-close' size={23} color='red' />
 				</TouchableNativeFeedback>
 			</View>
 		</View>
@@ -26,7 +25,7 @@ const CartItem = props => {
 const styles = StyleSheet.create({
 	cartItem: {
 		padding: 10,
-		backgroundColor: "white",
+		backgroundColor: "rgba(255,255,255,0)",
 		flexDirection: "row",
 		justifyContent: "space-between",
 		marginHorizontal: 20
@@ -42,11 +41,14 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: "open-sans-bold",
-		fontSize: 16
+		fontSize: 16,
+		color: "black"
 	},
 	amount: {
 		fontSize: "open-sans-bold",
-		fontSize: 16
+		fontSize: 16,
+		marginRight: 10,
+		color: "#888"
 	},
 	deleteButton: {
 		marginLeft: 20
