@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		marginHorizontal: 20,
 		overflow: "hidden",
-		backgroundColor: '#efefef'
+		backgroundColor: "#efefef"
 	},
 	image: {
 		width: "100%",
 		height: "60%",
 		borderBottomLeftRadius: 20,
-		borderBottomRightRadius: 20,
+		borderBottomRightRadius: 20
 	},
 	title: {
 		fontFamily: "open-sans-bold",
