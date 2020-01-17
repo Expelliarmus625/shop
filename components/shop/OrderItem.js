@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
 import CartItem from "./CartItem";
 import Colors from "../../constants/Colors";
+
 const OrderItem = props => {
+	const [showDetails, setShowDetails] = useState(false);
+
 	return (
 		<View style={styles.orderItem}>
 			<View style={styles.summary}>
-				<Text style={styles.totalAmount}>${props.amount}</Text>
+				<Text style={styles.totalAmount}>${props.amount.toFixed(2)}</Text>
 				<Text style={styles.date}>{props.date}</Text>
 			</View>
-			<Button color={Colors.accent} title='Show Details' />
+			<Button
+				color={Colors.accent}
+				title={showDetails ? "Hide Details" : "Show Details"}
+				onPress={() => {
+					setShowDetails(prevState => !prevState);
+				}}
+			/>
+			{showDetails && (
+				<View style={styles.detailItems}>
+					{props.items.map(item => (
+						<CartItem
+							key={item.productId}
+							quantity={item.quantity}
+							amount={item.sum}
+							title={item.productTitle}
+						/>
+					))}
+				</View>
+			)}
 		</View>
 	);
 };
@@ -20,20 +41,23 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 10,
 		backgroundColor: "white",
-        height: 100,
-        justifyContent : 'space-between',
-        alignItems : 'center',
+		justifyContent: "space-between",
+		alignItems: "center",
 		marginTop: 20,
 		marginHorizontal: 20,
 		overflow: "hidden",
-        backgroundColor: "#efefef",
-        padding : 10,
+		backgroundColor: "#efefef",
+		padding: 10
+	},
+	detailItems: {
+		width: "100%"
 	},
 	summary: {
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
-		width: "100%"
+		width: "100%",
+		margin: 10
 	},
 	totalAmount: {
 		fontFamily: "open-sans-bold",

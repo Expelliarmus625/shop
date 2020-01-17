@@ -11,12 +11,12 @@ const CartItem = props => {
 			</View>
 			<View style={styles.itemData}>
 				<Text style={styles.amount}>{props.amount}</Text>
-				<TouchableNativeFeedback
+				{props.deletable && <TouchableNativeFeedback
 					onPress={props.onRemove}
 					style={styles.deleteButton}
 				>
 					<Ionicons name='md-close' size={23} color='red' />
-				</TouchableNativeFeedback>
+				</TouchableNativeFeedback>}
 			</View>
 		</View>
 	);
