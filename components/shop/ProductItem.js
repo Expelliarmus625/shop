@@ -1,3 +1,6 @@
+// Props : image, title, price, onViewDetail, onAddToCart
+
+
 import { StyleSheet, View, Text, Image, Button } from "react-native";
 import React from "react";
 import Colors from "../../constants/Colors";
@@ -6,23 +9,14 @@ import { TouchableNativeFeedback } from "react-native-gesture-handler";
 const ProductItem = props => {
 	return (
 		<View style={styles.product}>
-			<TouchableNativeFeedback onPress={props.onViewDetail}>
+			<TouchableNativeFeedback onPress={props.onSelect}>
 				<Image style={styles.image} source={{ uri: props.image }} />
 				<View style={styles.detail}>
 					<Text style={styles.title}>{props.title}</Text>
 					<Text style={styles.price}>{props.price.toFixed(2)}</Text>
 				</View>
 				<View style={styles.actions}>
-					<Button
-						color={Colors.accent}
-						title='View Details'
-						onPress={props.onViewDetail}
-					/>
-					<Button
-						color={Colors.accent}
-						title='To Cart'
-						onPress={props.onAddToCart}
-					/>
+					{props.children}
 				</View>
 			</TouchableNativeFeedback>
 		</View>
